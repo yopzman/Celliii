@@ -1,0 +1,29 @@
+{
+  "prefix": "c!",
+  "ownerIds": [
+    "349874541784334337"
+  ],
+  "colors": {
+    "primary": "#FFB7C5",
+    "secondary": "#AEC6CF",
+    "success": "#BDFCC9",
+    "error": "#FF9899",
+    "warn": "#FDFD96",
+    "neutral": "#B39EB5"
+  },
+  "lavalink": [
+    {
+      "name": "Local Node",
+      "url": "localhost:2333",
+      "auth": "youshallnotpass",
+      "secure": false
+    }
+  ],
+  "defaultSettings": {
+    "welcomeMessage": "Welcome {user} to {guild}! You are member #{count}! 🌸",
+    "verificationRole": "Verified",
+    "modmailCategoryName": "Modmail",
+    "tempVoiceCategoryName": "Temp Voice",
+    "tempVoiceChannelName": "Join to Create"
+  }
+}
