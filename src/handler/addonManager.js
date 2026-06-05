@@ -73,7 +73,11 @@ const addonManager = {
 
     // Refresh application commands dynamically
     const commandHandler = require("./commandHandler");
-    await commandHandler.registerCommands(client);
+    try {
+      await commandHandler.registerCommands(client);
+    } catch (err) {
+      logger.error(`Failed to refresh commands after enabling addon ${name}`, err, "ADDON_MANAGER");
+    }
 
     logger.success(`Enabled addon: ${name}`, "ADDON_MANAGER");
     return { success: true, message: `Addon \`${name}\` has been enabled successfully!` };
@@ -92,7 +96,11 @@ const addonManager = {
 
     // Refresh application commands dynamically
     const commandHandler = require("./commandHandler");
-    await commandHandler.registerCommands(client);
+    try {
+      await commandHandler.registerCommands(client);
+    } catch (err) {
+      logger.error(`Failed to refresh commands after disabling addon ${name}`, err, "ADDON_MANAGER");
+    }
 
     logger.success(`Disabled addon: ${name}`, "ADDON_MANAGER");
     return { success: true, message: `Addon \`${name}\` has been disabled successfully!` };

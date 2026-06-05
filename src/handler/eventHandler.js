@@ -34,14 +34,20 @@ const eventHandler = {
           });
 
           // Register command slash inputs
-          await commandHandler.registerCommands(client);
+          await commandHandler.registerCommands(client).catch(err => 
+            logger.error("Failed to register commands during ready event", err, "EVENT_HANDLER")
+          );
         }
 
         // Special core handling for slash command interactions
         if (eventName === "interactionCreate") {
           const [interaction] = args;
           if (interaction.isChatInputCommand()) {
-            await commandHandler.handleInteraction(client, interaction);
+            try {
+              await commandHandler.handleInteraction(client, interaction);
+            } catch (err) {
+              logger.error(`Critical error handling interaction ${interaction.commandName}`, err, "EVENT_HANDLER");
+            }
           }
         }
 
